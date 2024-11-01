@@ -1,0 +1,6 @@
+﻿services:
+  otelwithaspirev1:
+    image: otelwithaspirev1
+    build:
+      context: .
+      dockerfile: OtelWithAspireV1/Dockerfile
