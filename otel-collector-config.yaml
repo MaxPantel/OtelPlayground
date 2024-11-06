@@ -5,11 +5,33 @@ receivers:
         endpoint: 0.0.0.0:4317
       http:
         endpoint: 0.0.0.0:4318
+
         
 exporters:
   
+  
+#  using otlp with the httpgrpc protocol
   otlphttp:
-    endpoint: "http://localhost:9090/api/v1/otlp/v1/metrics"
+    endpoint: #http://prometheus:9090/api/v1/otlp/v1/metrics
+    tls:
+     insecure: true
+
+    
+    #trying out another method with various endpoints
+  prometheusremotewrite:
+    endpoint: http://prometheus:9090/api/v1/write  # Standard remote write endpoint
+    tls:
+      insecure: true
+#  # Data sources: metrics
+#  prometheusremotewrite:
+#    endpoint: http://prometheus:9090/api/v1/write
+#    # http://prometheus:9090/api/v1/write
+#    tls:
+#      insecure: true
+#    # When using the official Prometheus (running via Docker)
+#    # endpoint: 'http://prometheus:9090/api/v1/write', add:
+#    # tls:
+#    #   insecure: true
 
   debug:
     verbosity: detailed

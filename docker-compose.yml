@@ -7,21 +7,22 @@
       dockerfile: OtelWithAspireV1/Dockerfile
     ports:
       - 8080:8080
-#    environment:
-#      - OTEL_EXPORTER_OTLP_ENDPOINT=http://prometheus:9090/api/v1/otlp/v1/metrics #http://otel-collector:4317
+    environment:
+#      - OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317  #default for grpc # http://prometheus:9090/api/v1/otlp/v1/metrics
     networks:
       - otel
   
-#  otel-collector:
-#    image: otel/opentelemetry-collector-contrib:latest
-#    container_name: otel-collector
-#    volumes:
-#      - ./otel-collector-config.yaml:/etc/otel/config.yaml
-#    command: [ "--config=/etc/otel/config.yaml" ]
-#    ports:
-#      - 4317:4317
-#    networks:
-#      - otel
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: otel-collector
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel/config.yaml
+    command: [ "--config=/etc/otel/config.yaml" ]
+    ports:
+      - 4317:4317
+    networks:
+      - otel
 
 #  aspire.dashboard:
 #    image: mcr.microsoft.com/dotnet/nightly/aspire-dashboard:latest
@@ -36,8 +37,8 @@
     image: grafana/grafana:latest
     ports:
       - "3001:3000"
-    # depends_on:
-    #   - prometheus
+    depends_on:
+       - prometheus
     networks:
       - otel
     volumes:
@@ -47,9 +48,6 @@
     image: prom/prometheus:latest
     ports:
       - "9090:9090"
-#    configs:
-#      - source: prometheus_config
-#        target: /etc/prometheus/prometheus.yml
     networks:
       - otel
     command:

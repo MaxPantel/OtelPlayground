@@ -1,4 +1,5 @@
 using System.Reflection;
+using OpenTelemetry.Exporter;
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
@@ -6,34 +7,42 @@ using OpenTelemetry.Trace;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var assembly = Assembly.GetExecutingAssembly();
-var assemblyName = assembly.GetName().Name;
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+string serviceUrl = "http://prometheus:9090/api/v1/otlp/v1/metrics";
+int exportIntervalMilliseconds = 1000;
 builder.Services.AddOpenTelemetry()
     .ConfigureResource(resourceBuilder =>
-        resourceBuilder.AddService(assemblyName ?? throw new InvalidOperationException()))
-    .WithMetrics(metrics =>
+        resourceBuilder.AddService("My_Service")
+            .AddAttributes(new List<KeyValuePair<string, object>>
+            {
+                new ("Location", "SA")
+            })
+        )
+    .WithMetrics(meterProviderBuilder =>
     {
-        metrics
-            .AddAspNetCoreInstrumentation()
-            .AddHttpClientInstrumentation();
+        meterProviderBuilder
+            .AddAspNetCoreInstrumentation() 
+            .AddHttpClientInstrumentation() 
+            .AddRuntimeInstrumentation() 
+            .AddProcessInstrumentation()
+            .AddOtlpExporter((options, metricReaderOptions) =>
+            {
+                metricReaderOptions.PeriodicExportingMetricReaderOptions.ExportIntervalMilliseconds =
+                    exportIntervalMilliseconds;
+            });
+            // .AddOtlpExporter((options, metricReaderOptions) =>
+            // {
+            //     options.Endpoint = new Uri(serviceUrl);
+            //     options.Protocol = OtlpExportProtocol.HttpProtobuf;
+            //     metricReaderOptions.PeriodicExportingMetricReaderOptions.ExportIntervalMilliseconds =
+            //         exportIntervalMilliseconds;
+            // });
+    });
 
-        metrics.AddOtlpExporter();
-    })
-    .WithTracing(tracing =>
-    {
-        tracing.AddAspNetCoreInstrumentation()
-            .AddHttpClientInstrumentation();
-
-        tracing.AddOtlpExporter();
-    }).
-    WithLogging(logging => logging.AddOtlpExporter());
 
 var app = builder.Build();
-
+Console.WriteLine(builder.Configuration["OTEL_EXPORTER_OTLP_ENDPOINT"]);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
