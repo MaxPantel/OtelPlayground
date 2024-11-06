@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e75649fa-4918-4d96-bd04-bb767f70eba9" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/NewFile1.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/otel-collector-config.yaml" afterDir="false" />
+    <list default="true" id="e75649fa-4918-4d96-bd04-bb767f70eba9" name="Changes" comment="set to debug">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenTelemetryPlayground/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenTelemetryPlayground/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenTelemetryPlayground.sln" beforeDir="false" afterPath="$PROJECT_DIR$/OpenTelemetryPlayground.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OtelWithAspireV1/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/OtelWithAspireV1/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OtelWithAspireV1/OtelWithAspireV1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/OtelWithAspireV1/OtelWithAspireV1.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OtelWithAspireV1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OtelWithAspireV1/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
@@ -31,16 +28,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/2d7eea252964e69be94cb9c847b371b23e4dd470/src/libraries/System.Private.CoreLib/src/System/Collections/Generic/List.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/maxw/RiderProjects/OpenTelemetryPlayground/OtelWithAspireV1/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/maxw/RiderProjects/OpenTelemetryPlayground/OtelWithAspireV1/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/maxw/RiderProjects/OpenTelemetryPlayground/OtelWithAspireV1/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/maxw/RiderProjects/OpenTelemetryPlayground/OtelWithAspireV1/appsettings.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -176,7 +168,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730452212025</updated>
       <workItem from="1730452213271" duration="39418000" />
-      <workItem from="1730882095354" duration="1124000" />
+      <workItem from="1730882095354" duration="5841000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -202,7 +194,47 @@
       <option name="project" value="LOCAL" />
       <updated>1730704097688</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1730883715226</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730883715226</updated>
+    </task>
+    <task id="LOCAL-00005" summary="EXPOSE 5244 instead of EXPOSE 8080">
+      <option name="closed" value="true" />
+      <created>1730883895240</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730883895240</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add grafana and prom">
+      <option name="closed" value="true" />
+      <created>1730883911589</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730883911589</updated>
+    </task>
+    <task id="LOCAL-00007" summary="i dunno">
+      <option name="closed" value="true" />
+      <created>1730883930741</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730883930741</updated>
+    </task>
+    <task id="LOCAL-00008" summary="set to debug">
+      <option name="closed" value="true" />
+      <created>1730883944921</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730883944921</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +258,10 @@
     <MESSAGE value="add telemetry" />
     <MESSAGE value="add aspire dashboard" />
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="EXPOSE 5244 instead of EXPOSE 8080" />
+    <MESSAGE value="add grafana and prom" />
+    <MESSAGE value="i dunno" />
+    <MESSAGE value="set to debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="set to debug" />
   </component>
 </project>
