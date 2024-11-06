@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  otelwithaspirev1:
+    build:
+      context: "C:\\Users\\maxw\\RiderProjects\\OpenTelemetryPlayground"
+      dockerfile: "OtelWithAspireV1/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/OtelWithAspireV1.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "otelwithaspirev1:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\maxw\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\maxw\\RiderProjects\\OpenTelemetryPlayground\\OtelWithAspireV1:/app:rw"
+    - "C:\\Users\\maxw\\RiderProjects\\OpenTelemetryPlayground:/src:rw"
+    working_dir: "/app"
