@@ -1,0 +1,21 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+        
+exporters:
+  
+  otlphttp:
+    endpoint: "http://localhost:9090/api/v1/otlp/v1/metrics"
+
+  debug:
+    verbosity: detailed
+    
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      exporters: [otlphttp, debug]
